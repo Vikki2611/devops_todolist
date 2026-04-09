@@ -15,4 +15,8 @@ docker push vikkinech/todoapp:1.0.0
 ## Docker Hub repository
 https://hub.docker.com/r/vikkinech/todoapp
 
+## Open in browser
+After running the container, open http://localhost:8080 in your browser.
+
+
 

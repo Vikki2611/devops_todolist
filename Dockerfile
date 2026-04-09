@@ -14,21 +14,20 @@ ENV PYTHONUNBUFFERED=1
 
 RUN python manage.py migrate
 
-# CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
-
 FROM python:${PYTHON_VERSION}-slim
 
 WORKDIR /app
 
-COPY requirements.txt .
-
-RUN pip install -r requirements.txt
-
 COPY --from=builder /app /app
+
+COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
+
+COPY --from=builder /usr/local/bin /usr/local/bin
 
 ENV PYTHONUNBUFFERED=1
 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
+
 
 
 

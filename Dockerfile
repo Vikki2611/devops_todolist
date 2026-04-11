@@ -20,13 +20,12 @@ WORKDIR /app
 
 COPY --from=builder /app /app
 
-COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
-
-COPY --from=builder /usr/local/bin /usr/local/bin
+COPY --from=builder /usr/local /usr/local
 
 ENV PYTHONUNBUFFERED=1
 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
+
 
 
 
